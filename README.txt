@@ -36,8 +36,8 @@ Credits:
 
 
 Known Issues:
-Namen bij kleine schermen teveel naar rechts,
-uitlijning bliksem zuigt ballen
 Pijlen missen
-Bij verticale schermen fucken de fotos bij teamleden
 de bliksem zelf is nog niet zo mooi als de bedoeling is
+fullscreen photo album view
+viewtopia plugin
+sidebar inklapbaar

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ViewTopia-demo</title>
+    <script src="Assets/js/galleryfullscreen.js"></script>
+    <link rel="stylesheet" href="Assets/css/gallery.css">
+</head>
+<body>
+
+
+<!-- The overlay -->
+<div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <div class="viewtopiaImage">
+            <img src="Assets/images/pic1.JPG" id="pic1">
+            <img src="Assets/images/pic2.JPG" id="pic2">
+            <img src="Assets/images/pic3.JPG" id="pic3">
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+<span onclick="openNav()">
+    <img src="Assets/images/pic1.JPG">
+</span>
+
+
+</body>
+</html>

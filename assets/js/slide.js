@@ -14,7 +14,6 @@ window.onload = function () {
     });
 
     biggestHeight += 120;
-// Set the container height deze doet zijn werk vanwege timingsissues nog niet goed
     $("#sliderwrapper").height(biggestHeight);
 
 
@@ -60,7 +59,6 @@ window.onload = function () {
         });
 
         biggestHeight += 120;
-// Set the container height deze doet zijn werk vanwege timingsissues nog niet goed
         $("#sliderwrapper").height(biggestHeight);
 
     };
