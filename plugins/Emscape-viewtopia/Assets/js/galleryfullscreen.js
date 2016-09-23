@@ -84,55 +84,8 @@ $('.pic').click(function () {
     });
 
 
-    /*$('.pic').each(function () {
-        if ($(this).attr('last') == 'true') {
-            $(this).attr('last','false');
-            $(this).css("left", "200%");
-            $(this).animate({
-                left: '100%'
-            }, 500);
-        }
-
-    });
-
-    $(this).attr('last','true');
-    var currentWidth = 0- $(this).width();
-    $(this).animate({
-        left: currentWidth.toString().concat('px')
-    }, 500);
-
-    var leftPosition;
-    var leftNextElement;
-
-    if ($(this).next().size() > 0) {
-
-
-        leftPosition = window.innerWidth / 2 - $(this).next().width()/2;
-        $('.viewtopiaImage').animate({
-            left: leftPosition.toString().concat('px') },500);
-
-        $('.viewtopiaImage').width($(this).next().width());
-
-
-        $(this).next().animate({
-            left: '0%'
-        }, 500);
-    } else {
-
-        leftPosition = window.innerWidth / 2 - $(this).prevAll().last().width()/2;
-        $('.viewtopiaImage').animate({
-            left: leftPosition.toString().concat('px') },500);
-
-        $('.viewtopiaImage').width($(this).prevAll().last().width());
-
-
-        $(this).prevAll().last().animate({
-            left: '0%'
-        }, 500);
-    }*/
 
 
 
 
-
-})
+});

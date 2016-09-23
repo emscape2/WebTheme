@@ -74,7 +74,7 @@ img{max-height: 100%}
 }
 
 #pic1{
-    left: 0%;
+    left: -30%;
 }
 
 #pic2{
@@ -83,4 +83,8 @@ img{max-height: 100%}
 
 #pic3{
     left: -100%;
+}
+
+#pic4{
+    left: -200%;
 }
