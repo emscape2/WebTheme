@@ -37,6 +37,7 @@ Credits:
 
 Known Issues:
 Pijlen missen
+alle pixel waardes uit laten rekenen ipv percentages gebruiken
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view
 viewtopia plugin
