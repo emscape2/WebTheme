@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5a44a1d-e415-4f83-88c5-23c090aad957" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css" afterPath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js" afterPath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Emscape-viewtopia/viewtopia-demo.html" afterPath="$PROJECT_DIR$/plugins/Emscape-viewtopia/viewtopia-demo.html" />
     </list>
     <ignored path="Website.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +59,8 @@
       <file leaf-file-name="galleryfullscreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+            <state relative-caret-position="527">
+              <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -403,12 +401,12 @@
       <workItem from="1474235186715" duration="611000" />
       <workItem from="1474278889830" duration="3992000" />
       <workItem from="1474404107874" duration="19933000" />
-      <workItem from="1474492811807" duration="18342000" />
+      <workItem from="1474492811807" duration="19494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110308000" />
+    <option name="totallyTimeSpent" value="111460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -720,8 +718,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+        <state relative-caret-position="527">
+          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
           <folding />
         </state>
       </provider>
