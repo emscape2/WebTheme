@@ -70,7 +70,7 @@ img{max-height: 100%}
 
 .pic{
     position: absolute;
-
+    left: -200%;
 }
 
 #pic1{
@@ -86,5 +86,14 @@ img{max-height: 100%}
 }
 
 #pic4{
-    left: -200%;
+}
+#pic5{
+}
+#pic6{
+}
+#pic7{
+}
+#pic8{
+}
+#pic9{
 }

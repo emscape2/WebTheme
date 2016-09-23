@@ -123,10 +123,4 @@ $('.pic').click(function () {
             left: formatToLeftPX(newLeft)
         }, 500);
     });*/
-
-
-
-
-
-
 });

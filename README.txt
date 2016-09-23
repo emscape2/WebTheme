@@ -36,8 +36,15 @@ Credits:
 
 
 Known Issues:
-Pijlen missen
-alle pixel waardes uit laten rekenen ipv percentages gebruiken
+gallery css automatisch initialiseren vanuit javascript
+automoatisch bij meer dan 4 total images een tweede voorloper neerzetten
+automatisch linker positie van 1-2 images ook goed
+generieke functie voor positie goed bij nummerkeuze helft-1 links helft rechts
+functie voor sliden los
+state bijhouden vam actieve pic
+functie voor naar links sliden
+buttons voor sliden
+
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view
 viewtopia plugin
