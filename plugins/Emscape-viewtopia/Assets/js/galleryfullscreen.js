@@ -30,6 +30,23 @@ $('.pic').click(function () {
     var halfScreenWidth = ($(window).width() / 2);
     var lastWidth;
     var notLast = false;
+    var totalSize = $(this).parent().children().size();
+    var index = $(this).parent().children().index($(this));
+    //calculate the index of the image most to the left
+    var firstLeftIndex = index - ((totalSize -1) / 2);
+    if (firstLeftIndex < 0)
+    {
+        firstLeftIndex = totalSize - 1 + firstLeftIndex;
+    }
+    //calculate the index of the image most to the right
+    var lastRightIndex = firstLeftIndex - 1;
+    if (lastRightIndex < 0)
+    {
+        lastRightIndex = totalSize - 1;
+    }
+
+
+
 
 //reset de parent
     $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth));
@@ -65,45 +82,49 @@ $('.pic').click(function () {
     var lastAnimateWidth = currentWidthHalf + (lastWidth / 2);
     var newContainerLeft =  halfScreenWidth - animateWidth;
 
+    var currentLeft = (-currentWidthHalf);
+    //alle blokken naar links correct positioneren.
+    var i = index;
+    do{
 
-    //lefts van alle elementen naar links verplaatsen zodat nieuwe parent positie goed gebruikt wordt
+        i = i - 1;
+        if (i < 0)
+        {
+            i = totalSize - 1;
+        }
+        currentLeft = currentLeft - $(this).parent().children().eq(i).width();
+        $(this).parent().children().eq(i).css('left', formatToLeftPX(currentLeft));
+    }
+    while(i != firstLeftIndex)//gaat 1 te ver door
+
+    //alle blokken rechts goed neerzetten
+    currentLeft = currentWidthHalf;
+    i = index;
+    do{
+
+        i = i + 1;
+        if (i == totalSize)
+        {
+            i = 0;
+        }
+        $(this).parent().children().eq(i).css('left', formatToLeftPX(currentLeft));
+        currentLeft = currentLeft + $(this).parent().children().eq(i).width();
+    }
+    while(i != lastRightIndex)//gaat 1 te ver door
+
+
+
+
+    /*//lefts van alle elementen naar links verplaatsen zodat nieuwe parent positie goed gebruikt wordt
     $('.pic').each(function () {
         var newLeft = $(this).position().left;
         newLeft = newLeft - lastAnimateWidth;
         $(this).css('left', formatToLeftPX(newLeft));
-    });
+    });*/
 
     // positie dit element goed doen
     $(this).css('left', formatToLeftPX(-currentWidthHalf));
 
-
-    //positie volgende element goed doen
-    if(notLast)
-    {
-        $(this).next().css('left', formatToLeftPX( currentWidthHalf));
-    }
-    else
-    {
-        $(this).prevAll().last().css('left', formatToLeftPX( currentWidthHalf));
-    }
-
-    //daaropvolgende element rechts van volgende plaatsen
-    if(notLast)
-    {
-        if($(this).nextAll().size() > 1)
-        {
-            $(this).nextAll().eq(1).css('left', formatToLeftPX(currentWidthHalf + nextWidth));
-        }
-        else
-        {
-            $(this).prevAll().last().css('left', formatToLeftPX(currentWidthHalf + nextWidth));
-        }
-    }
-    else
-    {
-        var selector = $(this).prevAll().size() - 2;
-        $(this).prevAll().eq(selector).css('left', formatToLeftPX(currentWidthHalf + nextWidth));
-    }
 
 
 

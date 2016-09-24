@@ -36,14 +36,25 @@ Credits:
 
 
 Known Issues:
-gallery css automatisch initialiseren vanuit javascript
-automoatisch bij meer dan 4 total images een tweede voorloper neerzetten
-automatisch linker positie van 1-2 images ook goed
-generieke functie voor positie goed bij nummerkeuze helft-1 links helft rechts
+automatisch rechterpositie goed
+generieke functie voor positie goed bij nummerkeuze helft-1 links helft rechts ipv repositioning twice
 functie voor sliden los
 state bijhouden vam actieve pic
+openNav index van trigger afbeelding meegeven
 functie voor naar links sliden
 buttons voor sliden
+//automatisch linker positie van 1-2 images ook goed
+
+
+
+thumbnail bar
+effecten op images die niet nu in midden staan
+effect/image om gekozen tumbnail weer te geven
+borders
+
+opties centraal geregistreerd
+verschillende opties om look te doen
+
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view
