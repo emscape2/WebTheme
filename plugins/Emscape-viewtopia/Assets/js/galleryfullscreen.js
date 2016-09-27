@@ -35,6 +35,8 @@ function formatToLeftPX(pixels)
     return toReturn;
 }
 
+
+
 function centreElement(index, startingDisplacement)
 {
     currentIndex = index;
@@ -94,6 +96,11 @@ function centreElement(index, startingDisplacement)
     $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
 
 }
+
+$('.vThumb').click(function () {
+    var index = $(this).parent().index();
+    centreElement(index);
+})
 
 //on mousclick start registering drag
 $('.viewtopiaImage').mousedown(function ()
