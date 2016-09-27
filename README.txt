@@ -36,7 +36,6 @@ Credits:
 
 
 Known Issues:
-automatisch rechterpositie goed
 generieke functie voor positie goed bij nummerkeuze helft-1 links helft rechts ipv repositioning twice
 functie voor sliden los
 state bijhouden vam actieve pic
@@ -52,9 +51,10 @@ effecten op images die niet nu in midden staan
 effect/image om gekozen tumbnail weer te geven
 borders
 
+
 opties centraal geregistreerd
 verschillende opties om look te doen
-
+andere elementen dan images in de gallery
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view

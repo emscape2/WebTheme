@@ -30,8 +30,8 @@ $('.pic').click(function () {
     var halfScreenWidth = ($(window).width() / 2);
     var lastWidth;
     var notLast = false;
-    var totalSize = $(this).parent().children().size();
-    var index = $(this).parent().children().index($(this));
+    var totalSize =  $('.viewtopiaImage').first().children().size();
+    var index =  $('.viewtopiaImage').first().children().index($(this));
     //calculate the index of the image most to the left
     var firstLeftIndex = index - ((totalSize -1) / 2);
     if (firstLeftIndex < 0)
@@ -92,8 +92,8 @@ $('.pic').click(function () {
         {
             i = totalSize - 1;
         }
-        currentLeft = currentLeft - $(this).parent().children().eq(i).width();
-        $(this).parent().children().eq(i).css('left', formatToLeftPX(currentLeft));
+        currentLeft = currentLeft -  $('.viewtopiaImage').first().children().eq(i).width();
+         $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
     }
     while(i != firstLeftIndex)//gaat 1 te ver door
 
@@ -107,8 +107,8 @@ $('.pic').click(function () {
         {
             i = 0;
         }
-        $(this).parent().children().eq(i).css('left', formatToLeftPX(currentLeft));
-        currentLeft = currentLeft + $(this).parent().children().eq(i).width();
+         $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
+        currentLeft = currentLeft +  $('.viewtopiaImage').first().children().eq(i).width();
     }
     while(i != lastRightIndex)//gaat 1 te ver door
 
