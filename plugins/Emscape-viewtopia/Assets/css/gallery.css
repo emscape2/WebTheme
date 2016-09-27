@@ -49,7 +49,20 @@
     position: absolute;
 
     z-index: 101;
-    left: 3vh;
+    left: 3vw;
+    font-size: 60px;
+    height: 6vh;
+    width: 6vh;
+    top: 47vh;
+
+}
+
+
+.overlay .rightbtn{
+    position: absolute;
+
+    z-index: 101;
+    left: calc(97vw - 6vh);
     font-size: 60px;
     height: 6vh;
     width: 6vh;

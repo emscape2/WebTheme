@@ -20,6 +20,11 @@ function moveOneLeft() {
     animateToLeft(currentIndex);
 }
 
+
+function moveOneRight() {
+    animateToRight(currentIndex);
+}
+
 function formatToLeftPX(pixels)
 {
     var toReturn =    pixels.toString();
@@ -93,7 +98,7 @@ $('.pic').click(function () {
 });
 */
 
-function animateToLeft(index) {
+function animateToRight(index) {
 
 
     //eerst helft breedte this uitrekenen
@@ -105,9 +110,6 @@ function animateToLeft(index) {
     var notLast = false;
 
     centreElement(index);
-
-
-//    var lastAnimateWidth = currentWidthHalf + (lastWidth / 2);
 
 
     //bereken positie binnen array al vantevoren
@@ -147,13 +149,59 @@ function animateToLeft(index) {
     {
         currentIndex = 0;
     }
-    /* deprecated code
-    //alles animeren door helft breedte huidige en helft breedte volgende naar links te plaatsen
-    $('.pic').each(function () {
-        var newLeft = $(this).position().left;
-        newLeft = newLeft - animateWidth;
-        $(this).animate({
-            left: formatToLeftPX(newLeft)
-        }, 500);
-    });*/
 }
+
+
+function animateToLeft(index) {
+
+
+    //eerst helft breedte this uitrekenen
+    var currentWidthHalf = $('.viewtopiaImage').first().children().eq(index).width() /2;
+    var lastWidth;
+    var animateWidth;
+    var halfScreenWidth = ($(window).width() / 2);
+    var totalSize =  $('.viewtopiaImage').first().children().size();
+    var notFirst = false;
+
+    centreElement(index);
+
+
+    //bereken positie binnen array al vantevoren
+    if ($('.viewtopiaImage').first().children().eq(index).prev().size() > 0)
+    {
+        notFirst = true;
+    }
+
+    // breedte vorige element uitlezen
+    if(notFirst)
+    {
+        lastWidth =$('.viewtopiaImage').first().children().eq(index-1).width();
+    }
+    else
+    {
+        lastWidth = $('.viewtopiaImage').first().children().eq(totalSize - 1).width();
+    }
+
+
+//animatiebreedte bepalen
+    animateWidth = currentWidthHalf + ( lastWidth / 2);
+    var newContainerLeft =  halfScreenWidth + animateWidth;
+
+
+
+    //parent container animeren naar positie naar links
+    $('.viewtopiaImage').animate(
+        {
+            left: formatToLeftPX(newContainerLeft)
+        }, 500);
+
+    if (currentIndex > 0)
+    {
+        currentIndex = currentIndex - 1;
+    }
+    else
+    {
+        currentIndex = totalSize - 1;
+    }
+}
+

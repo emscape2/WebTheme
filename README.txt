@@ -36,17 +36,15 @@ Credits:
 
 
 Known Issues:
-generieke functie voor positie goed bij nummerkeuze helft-1 links helft rechts ipv repositioning twice
-functie voor sliden los
-state bijhouden vam actieve pic
-openNav index van trigger afbeelding meegeven
-functie voor naar links sliden
-buttons voor sliden
-//automatisch linker positie van 1-2 images ook goed
 
 
 
 thumbnail bar
+
+slide gesture werkend
+functie die bijhoudt welke image in het midden staat na sliden
+functie die na sliden dooranimeert zodat gegeven image gecentreerd wordt
+
 effecten op images die niet nu in midden staan
 effect/image om gekozen tumbnail weer te geven
 borders
