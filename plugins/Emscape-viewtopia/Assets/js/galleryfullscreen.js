@@ -8,11 +8,16 @@ var currentIndex;
 function openNav(index) {
     document.getElementById("myNav").style.width = "100%";
     centreElement(index);
+    currentIndex = index;
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
     document.getElementById("myNav").style.width = "0%";
+}
+
+function moveOneLeft() {
+    animateToLeft(currentIndex);
 }
 
 function formatToLeftPX(pixels)
@@ -81,11 +86,12 @@ function centreElement(index)
     $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth));
 
 }
-
+/*
 $('.pic').click(function () {
     var index = $('.viewtopiaImage').first().children().index($(this));
     animateToLeft(index);
 });
+*/
 
 function animateToLeft(index) {
 
@@ -141,7 +147,6 @@ function animateToLeft(index) {
     {
         currentIndex = 0;
     }
-
     /* deprecated code
     //alles animeren door helft breedte huidige en helft breedte volgende naar links te plaatsen
     $('.pic').each(function () {

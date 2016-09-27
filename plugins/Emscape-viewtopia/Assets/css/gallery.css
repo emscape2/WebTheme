@@ -45,6 +45,18 @@
     font-size: 60px;
 }
 
+.overlay .leftbtn{
+    position: absolute;
+
+    z-index: 101;
+    left: 3vh;
+    font-size: 60px;
+    height: 6vh;
+    width: 6vh;
+    top: 47vh;
+
+}
+
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
     .overlay a {font-size: 20px}
