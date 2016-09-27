@@ -20,12 +20,12 @@ function closeNav() {
 }
 
 function moveOneLeft() {
-    animateToLeft(currentIndex);
+    animateToLeft(currentIndex, 0);
 }
 
 
 function moveOneRight() {
-    animateToRight(currentIndex);
+    animateToRight(currentIndex, 0);
 }
 
 function formatToLeftPX(pixels)
@@ -35,7 +35,7 @@ function formatToLeftPX(pixels)
     return toReturn;
 }
 
-function centreElement(index)
+function centreElement(index, startingDisplacement)
 {
     currentIndex = index;
     var currentWidthHalf =  $('.viewtopiaImage').first().children().eq(index).width() / 2;
@@ -91,7 +91,7 @@ function centreElement(index)
 
 
 //reset de parent
-    $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth));
+    $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
 
 }
 
@@ -111,7 +111,7 @@ $('.viewtopiaImage').mousedown(function ()
 
 });
 
-
+//registers the mouse movement and scrolls the entire bar in the right direction
 $('.viewtopiaImage').mousemove( function()
 {
     if (isDrag)
@@ -122,6 +122,7 @@ $('.viewtopiaImage').mousemove( function()
     }
 });
 
+//when the mouse is released the elements moveback into place
 $('.viewtopiaImage').mouseup(function()
 {
 
@@ -130,20 +131,20 @@ $('.viewtopiaImage').mouseup(function()
 
         if (event.clientX - dragStartX > 10)
         {
-            animateToLeft(currentIndex);
+            animateToLeft(currentIndex, event.clientX - dragStartX);
         }
         else if (dragStartX - event.clientX > 10)
         {
-            animateToRight(currentIndex);
+            animateToRight(currentIndex, event.clientX - dragStartX);
         }
         else
             {
-            centreElement(currentIndex);
+            centreElement(currentIndex); // hier moet nog animatie terug naar centre voor in de plaats komen.
         }
     }
 });
 
-function animateToRight(index) {
+function animateToRight(index, startingDisplacement) {
 
 
     //eerst helft breedte this uitrekenen
@@ -154,7 +155,7 @@ function animateToRight(index) {
     var totalSize =  $('.viewtopiaImage').first().children().size();
     var notLast = false;
 
-    centreElement(index);
+    centreElement(index, startingDisplacement);
 
 
     //bereken positie binnen array al vantevoren
@@ -197,7 +198,7 @@ function animateToRight(index) {
 }
 
 
-function animateToLeft(index) {
+function animateToLeft(index , startingDisplacement) {
 
 
     //eerst helft breedte this uitrekenen
@@ -208,7 +209,7 @@ function animateToLeft(index) {
     var totalSize =  $('.viewtopiaImage').first().children().size();
     var notFirst = false;
 
-    centreElement(index);
+    centreElement(index, startingDisplacement);
 
 
     //bereken positie binnen array al vantevoren

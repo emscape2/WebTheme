@@ -41,9 +41,7 @@ Known Issues:
 
 thumbnail bar
 
-slide gesture werkend
-functie die bijhoudt welke image in het midden staat na sliden
-functie die na sliden dooranimeert zodat gegeven image gecentreerd wordt
+functie die de centreElement aanpast bij een element dat al deels geslide isx`
 
 effecten op images die niet nu in midden staan
 effect/image om gekozen tumbnail weer te geven
