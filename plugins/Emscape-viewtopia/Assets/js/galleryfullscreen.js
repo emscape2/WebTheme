@@ -4,6 +4,7 @@
 
 var currentIndex;
 var dragStartX;
+var dragStartLeftX;
 var isDrag = false;
 
 /* Open when someone clicks on the span element */
@@ -94,18 +95,15 @@ function centreElement(index)
 
 }
 
-$('.pic').ready(function()
-{
-
-})
-
+//on mousclick start registering drag
 $('.viewtopiaImage').mousedown(function ()
 {
     if (!isDrag)
     {
+        dragStartLeftX = $(this).position().left;
         dragStartX = event.clientX;
+        isDrag = true;
     }
-    isDrag = true;
 
 
 
@@ -118,7 +116,9 @@ $('.viewtopiaImage').mousemove( function()
 {
     if (isDrag)
     {
-        $('viewtopiaImagge').first().css('left'), formatToLeftPX(event.clientX - dragStartX);
+        var newLeft = dragStartLeftX + (event.clientX - dragStartX) ;
+        $(this).css('left', formatToLeftPX(newLeft));
+        isDrag= isDrag;
     }
 });
 
