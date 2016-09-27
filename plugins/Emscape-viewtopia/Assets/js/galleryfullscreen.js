@@ -1,12 +1,13 @@
 /**
  * Created by Emscape on 21-9-2016.
  */
+
+var currentIndex;
+
 /* Open when someone clicks on the span element */
-function openNav() {
+function openNav(index) {
     document.getElementById("myNav").style.width = "100%";
-    $('.pic').each(function () {
-        $(this).attr('last','false');
-    });
+    centreElement(index);
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -21,17 +22,12 @@ function formatToLeftPX(pixels)
     return toReturn;
 }
 
-$('.pic').click(function () {
-
-    //eerst helft breedte this uitrekenen
-    var currentWidthHalf = $(this).width() /2;
-    var nextWidth;
-    var animateWidth;
+function centreElement(index)
+{
+    currentIndex = index;
+    var currentWidthHalf =  $('.viewtopiaImage').first().children().eq(index).width() / 2;
     var halfScreenWidth = ($(window).width() / 2);
-    var lastWidth;
-    var notLast = false;
     var totalSize =  $('.viewtopiaImage').first().children().size();
-    var index =  $('.viewtopiaImage').first().children().index($(this));
     //calculate the index of the image most to the left
     var firstLeftIndex = index - ((totalSize -1) / 2);
     if (firstLeftIndex < 0)
@@ -46,42 +42,6 @@ $('.pic').click(function () {
     }
 
 
-
-
-//reset de parent
-    $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth));
-
-    //bereken positie binnen array al vantevoren
-    if ($(this).next().size() > 0)
-    {
-        notLast = true;
-    }
-
-    // breedte volgende element uitlezen
-    if(notLast)
-    {
-        nextWidth = $(this).next().width();
-    }
-    else
-    {
-        nextWidth = $(this).prevAll().last().width();
-    }
-
-    //breedte vorige element uitlezen
-    if($(this).prev().size() > 0)
-    {
-        lastWidth = $(this).prev().width();
-    }
-    else
-    {
-        lastWidth = $(this).nextAll().last().width();
-    }
-
-//animatiebreedte bepalen
-    animateWidth = currentWidthHalf + ( nextWidth / 2);
-    var lastAnimateWidth = currentWidthHalf + (lastWidth / 2);
-    var newContainerLeft =  halfScreenWidth - animateWidth;
-
     var currentLeft = (-currentWidthHalf);
     //alle blokken naar links correct positioneren.
     var i = index;
@@ -93,7 +53,7 @@ $('.pic').click(function () {
             i = totalSize - 1;
         }
         currentLeft = currentLeft -  $('.viewtopiaImage').first().children().eq(i).width();
-         $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
+        $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
     }
     while(i != firstLeftIndex)//gaat 1 te ver door
 
@@ -107,24 +67,63 @@ $('.pic').click(function () {
         {
             i = 0;
         }
-         $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
+        $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
         currentLeft = currentLeft +  $('.viewtopiaImage').first().children().eq(i).width();
     }
     while(i != lastRightIndex)//gaat 1 te ver door
 
 
-
-
-    /*//lefts van alle elementen naar links verplaatsen zodat nieuwe parent positie goed gebruikt wordt
-    $('.pic').each(function () {
-        var newLeft = $(this).position().left;
-        newLeft = newLeft - lastAnimateWidth;
-        $(this).css('left', formatToLeftPX(newLeft));
-    });*/
-
     // positie dit element goed doen
-    $(this).css('left', formatToLeftPX(-currentWidthHalf));
+    $('.viewtopiaImage').first().children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
 
+
+//reset de parent
+    $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth));
+
+}
+
+$('.pic').click(function () {
+    var index = $('.viewtopiaImage').first().children().index($(this));
+    animateToLeft(index);
+});
+
+function animateToLeft(index) {
+
+
+    //eerst helft breedte this uitrekenen
+    var currentWidthHalf = $('.viewtopiaImage').first().children().eq(index).width() /2;
+    var nextWidth;
+    var animateWidth;
+    var halfScreenWidth = ($(window).width() / 2);
+    var totalSize =  $('.viewtopiaImage').first().children().size();
+    var notLast = false;
+
+    centreElement(index);
+
+
+//    var lastAnimateWidth = currentWidthHalf + (lastWidth / 2);
+
+
+    //bereken positie binnen array al vantevoren
+    if ($('.viewtopiaImage').first().children().eq(index).next().size() > 0)
+    {
+        notLast = true;
+    }
+
+    // breedte volgende element uitlezen
+    if(notLast)
+    {
+        nextWidth =$('.viewtopiaImage').first().children().eq(index).next().width();
+    }
+    else
+    {
+        nextWidth = $('.viewtopiaImage').first().children().eq(index-1).width();
+    }
+
+
+//animatiebreedte bepalen
+    animateWidth = currentWidthHalf + ( nextWidth / 2);
+    var newContainerLeft =  halfScreenWidth - animateWidth;
 
 
 
@@ -134,6 +133,14 @@ $('.pic').click(function () {
        left: formatToLeftPX(newContainerLeft)
     }, 500);
 
+    if (currentIndex < totalSize - 1)
+    {
+        currentIndex = currentIndex + 1;
+    }
+    else
+    {
+        currentIndex = 0;
+    }
 
     /* deprecated code
     //alles animeren door helft breedte huidige en helft breedte volgende naar links te plaatsen
@@ -144,4 +151,4 @@ $('.pic').click(function () {
             left: formatToLeftPX(newLeft)
         }, 500);
     });*/
-});
+}
