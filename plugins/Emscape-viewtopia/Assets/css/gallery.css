@@ -85,6 +85,8 @@
 img{max-height: 100%}
 
 .viewtopiaImage{
+
+
     position: absolute;
     left: 50%;
     height: 80vh;
@@ -96,6 +98,13 @@ img{max-height: 100%}
 .pic{
     position: absolute;
     left: -200%;
+
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 }
 
 #pic1{

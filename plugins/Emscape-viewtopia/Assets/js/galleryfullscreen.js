@@ -3,6 +3,8 @@
  */
 
 var currentIndex;
+var dragStartX;
+var isDrag = false;
 
 /* Open when someone clicks on the span element */
 function openNav(index) {
@@ -91,12 +93,55 @@ function centreElement(index)
     $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth));
 
 }
-/*
-$('.pic').click(function () {
-    var index = $('.viewtopiaImage').first().children().index($(this));
-    animateToLeft(index);
+
+$('.pic').ready(function()
+{
+
+})
+
+$('.viewtopiaImage').mousedown(function ()
+{
+    if (!isDrag)
+    {
+        dragStartX = event.clientX;
+    }
+    isDrag = true;
+
+
+
+
+
 });
-*/
+
+
+$('.viewtopiaImage').mousemove( function()
+{
+    if (isDrag)
+    {
+        $('viewtopiaImagge').first().css('left'), formatToLeftPX(event.clientX - dragStartX);
+    }
+});
+
+$('.viewtopiaImage').mouseup(function()
+{
+
+    if (isDrag) {
+        isDrag = false;
+
+        if (event.clientX - dragStartX > 10)
+        {
+            animateToLeft(currentIndex);
+        }
+        else if (dragStartX - event.clientX > 10)
+        {
+            animateToRight(currentIndex);
+        }
+        else
+            {
+            centreElement(currentIndex);
+        }
+    }
+});
 
 function animateToRight(index) {
 
