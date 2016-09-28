@@ -37,9 +37,12 @@ Credits:
 
 Known Issues:
 
+titel dynamisch
 Logo erbij doen
 alle functionaliteit opschrijven
 andere elementen dan images in de gallery
+
+
 
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is

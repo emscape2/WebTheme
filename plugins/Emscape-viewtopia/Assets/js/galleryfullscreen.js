@@ -7,6 +7,7 @@ var dragStartX;
 var dragStartLeftX;
 var currentViewTopia;
 var currentViewTopiaThumbnail;
+var currentImageTextWrapper;
 var isDrag = false;
 
 $('.videowrapper').ready(function () {
@@ -18,6 +19,7 @@ function openNav(index, galleryIndex, navId) {
     document.getElementById(navId).style.width = "100%";
     currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
+    currentImageTextWrapper = $('.imageTextWrapper').eq(galleryIndex);
     if (index > 0) {
         centreElement(index);
     }
@@ -25,6 +27,18 @@ function openNav(index, galleryIndex, navId) {
         centreElement(0);
     }
         currentIndex = index;
+
+
+    currentThumbnail(currentIndex);
+}
+
+function currentThumbnail(currentIndex){
+
+    currentImageTextWrapper.children().each(function () {
+        $(this).css('display', 'none')
+
+    });
+    currentImageTextWrapper.children().eq(currentIndex).css('display', 'block');
 
     currentViewTopiaThumbnail.children().eq(currentIndex).animate(
         {
@@ -36,6 +50,11 @@ function openNav(index, galleryIndex, navId) {
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav(navId) {
     document.getElementById(navId).style.width = "0%";
+
+    currentImageTextWrapper.children().each(function () {
+        $(this).css('display', 'none')
+
+    });
 }
 
 function moveOneLeft() {
@@ -123,11 +142,7 @@ $('.vThumb').click(function () {
     var index = $(this).parent().index();
     centreElement(index,0);
 
-    currentViewTopiaThumbnail.children().eq(index).animate(
-        {
-            top: '-25%'
-
-        } , 150);
+    currentThumbnail(index);
 
 })
 
@@ -232,11 +247,7 @@ function animateToRight(index, startingDisplacement) {
         currentIndex = 0;
     }
 
-    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
-        {
-            top: '-25%'
-
-        } , 150);
+    currentThumbnail(currentIndex);
 }
 
 
@@ -292,10 +303,6 @@ function animateToLeft(index , startingDisplacement) {
         currentIndex = totalSize - 1;
     }
 
-    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
-        {
-            top: '-25%'
-
-        } , 150);
+    currentThumbnail(currentIndex);
 }
 

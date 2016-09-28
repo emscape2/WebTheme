@@ -54,7 +54,7 @@
     height: 6vh;
     width: 6vh;
     top: 47vh;
-    background-image: url("arrowR.png");
+    background-image: url("arrow2R.png");
     background-size: cover;
 
 }
@@ -69,7 +69,7 @@
     height: 6vh;
     width: 6vh;
     top: 47vh;
-    background-image: url("arrow.png");
+    background-image: url("arrow2.png");
     background-size: cover;
 
 }
@@ -120,6 +120,31 @@ img{max-height: 100%}
 @media screen and (-webkit-min-device-pixel-ratio:0)
 and (min-resolution:.001dpcm) {
     .vThumb {
+        border-style: ridge;
+    }
+}
+
+.imageTextWrapper{
+
+}
+
+.imageText{
+    background-color: #151618;
+    color: #655D55;
+    display: none;
+    position: fixed;
+    top: 2vh;
+    font-size: 5vh;
+    font-family: Georgia, sans-serif;
+    border-color: #101012;
+    width: 30vw;
+    left: 35vw;
+    text-align: center;
+}
+/* only in Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+    .imageText {
         border-style: ridge;
     }
 }
