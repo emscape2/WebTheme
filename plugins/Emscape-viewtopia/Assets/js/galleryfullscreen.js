@@ -15,8 +15,13 @@ function openNav(index, galleryIndex, navId) {
     document.getElementById(navId).style.width = "100%";
     currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
-    centreElement(index);
-    currentIndex = index;
+    if (index > 0) {
+        centreElement(index);
+    }
+    else {
+        centreElement(0);
+    }
+        currentIndex = index;
 
     currentViewTopiaThumbnail.children().eq(currentIndex).animate(
         {
@@ -55,10 +60,10 @@ function centreElement(index, startingDisplacement)
     var halfScreenWidth = ($(window).width() / 2);
     var totalSize =  currentViewTopia.children().size();
     //calculate the index of the image most to the left
-    var firstLeftIndex = Math.floor(index - ((totalSize -1) / 2));
+    var firstLeftIndex = Math.ceil(index - ((totalSize) / 2));
     if (firstLeftIndex < 0)
     {
-        firstLeftIndex = totalSize - 1 + firstLeftIndex;
+        firstLeftIndex = (totalSize) + firstLeftIndex;
     }
     //calculate the index of the image most to the right
     var lastRightIndex = firstLeftIndex - 1;
@@ -82,7 +87,7 @@ function centreElement(index, startingDisplacement)
         currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
         currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
-    while(i != firstLeftIndex)//gaat 1 te ver door
+    while(i != firstLeftIndex)//gaat niet te ver door
 
     //alle blokken rechts goed neerzetten
     currentLeft = currentWidthHalf;

@@ -140,7 +140,7 @@ and (min-resolution:.001dpcm) {
 
 .pic{
     position: absolute;
-
+    height: 100%;
     border-radius: 3vh;
     left: -200%;
     border-style: solid;

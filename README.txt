@@ -40,6 +40,8 @@ Known Issues:
 Mooiere Icons
 Logo erbij doen
 stretch to image height in fullscreen
+3 extra test images
+alle functionaliteit opschrijven
 icoontjes
 andere elementen dan images in de gallery
 
