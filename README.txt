@@ -37,10 +37,9 @@ Credits:
 
 Known Issues:
 
-titel dynamisch
 Logo erbij doen
+Wit thema doen
 alle functionaliteit opschrijven
-andere elementen dan images in de gallery
 
 
 
