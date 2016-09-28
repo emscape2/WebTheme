@@ -12,8 +12,82 @@
 <!-- The overlay -->
 <div id="myNav" class="overlay">
 
+    viewtopia
     <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myNav')">&times;</a>
+
+    <!--the navigation buttons-->
+    <span onclick="moveOneLeft()">
+        <div class="leftbtn">
+        </div>
+    </span>
+
+    <span onclick="moveOneRight()">
+        <div class="rightbtn">
+        </div>
+    </span>
+
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <div class="viewtopiaImage" ><!-- all the image elements wich will be enlarged-->
+            <img draggable="false"  src="Assets/images/pic1.JPG" class="pic" id="pic1">
+            <img draggable="false"  src="Assets/images/pic2.JPG" class="pic" id="pic2">
+            <img draggable="false"  src="Assets/images/pic5.JPG" class="pic" id="pic5">
+            <img draggable="false"  src="Assets/images/pic7.JPG" class="pic" id="pic7">
+            <img draggable="false"  src="Assets/images/pic8.JPG" class="pic" id="pic8">
+        </div>
+        <div class="viewtopiaThumbnail class=vThumb"><!--all the elements for in the thumbnail bar below-->
+            <div class="vThumbContainer" > <img src="Assets/images/pic1.JPG" class="vThumb"> </div>
+            <div class="vThumbContainer" > <img src="Assets/images/pic2.JPG" class="vThumb"> </div>
+            <div class="vThumbContainer" > <img src="Assets/images/pic5.JPG" class="vThumb"> </div>
+            <div class="vThumbContainer" > <img src="Assets/images/pic7.JPG" class="vThumb"> </div>
+            <div class="vThumbContainer" > <img src="Assets/images/pic8.JPG" class="vThumb"> </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!-- Use any element to open/show the viewtopia navigation menu -->
+<span onclick="openNav(0,0,'myNav')">
+    <img src="Assets/images/pic1.JPG" style="height: 100px">
+</span>
+<span onclick="openNav(1,0,'myNav')">
+    <img src="Assets/images/pic2.JPG" style="height: 100px">
+</span>
+<span onclick="openNav(2,0,'myNav')">
+    <img src="Assets/images/pic5.JPG" style="height: 100px">
+</span>
+<span onclick="openNav(3,0,'myNav')">
+    <img src="Assets/images/pic7.JPG" style="height: 100px">
+</span>
+<span onclick="openNav(4,0,'myNav')">
+    <img src="Assets/images/pic8.JPG" style="height: 100px">
+</span>
+
+<br>
+
+<span onclick="openNav(0,1,'myNav2')">
+    <img src="Assets/images/pic3.JPG" style="height: 200px">
+</span>
+<span onclick="openNav(1,1,'myNav2')">
+    <img src="Assets/images/pic4.JPG" style="height: 200px">
+</span>
+<span onclick="openNav(2,1,'myNav2')">
+    <img src="Assets/images/pic6.JPG" style="height: 200px">
+</span>
+<span onclick="openNav(3,1,'myNav2')">
+    <img src="Assets/images/pic9.JPG" style="height: 200px">
+</span>
+
+
+<!--example second overlay-->
+<div id="myNav2" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myNav2')">&times;</a>
     <span onclick="moveOneLeft()">
         <div class="leftbtn">
             <img src="Assets/images/arrow.jpg">
@@ -29,46 +103,23 @@
 
     <!-- Overlay content -->
     <div class="overlay-content">
-        <div class="viewtopiaImage" >
-            <img src="Assets/images/pic1.JPG" class="pic" id="pic1">
-            <img src="Assets/images/pic2.JPG" class="pic" id="pic2">
-            <img src="Assets/images/pic3.JPG" class="pic" id="pic3">
-            <img src="Assets/images/pic4.JPG" class="pic" id="pic4">
-            <img src="Assets/images/pic5.JPG" class="pic" id="pic5">
-            <img src="Assets/images/pic6.JPG" class="pic" id="pic6">
-            <img src="Assets/images/pic7.JPG" class="pic" id="pic7">
-            <img src="Assets/images/pic8.JPG" class="pic" id="pic8">
-            <img src="Assets/images/pic9.JPG" class="pic" id="pic9">
+        <div class="viewtopiaImage" ><!-- all the image elements wich will be enlarged-->
+            <img draggable="false"  src="Assets/images/pic3.JPG" class="pic" id="pic3">
+            <img draggable="false"  src="Assets/images/pic4.JPG" class="pic" id="pic4">
+            <img draggable="false"  src="Assets/images/pic6.JPG" class="pic" id="pic6">
+            <img draggable="false"  src="Assets/images/pic9.JPG" class="pic" id="pic9">
         </div>
-        <div class="viewtopiaThumbnail class=vThumb">
-            <div class="vThumbContainer" > <img src="Assets/images/pic1.JPG" class="vThumb"> </div>
-            <div class="vThumbContainer" > <img src="Assets/images/pic2.JPG" class="vThumb"> </div>
+        <div class="viewtopiaThumbnail class=vThumb"><!--all the elements for in the thumbnail bar below-->
             <div class="vThumbContainer" > <img src="Assets/images/pic3.JPG" class="vThumb"> </div>
             <div class="vThumbContainer" > <img src="Assets/images/pic4.JPG" class="vThumb"> </div>
-            <div class="vThumbContainer" > <img src="Assets/images/pic5.JPG" class="vThumb"> </div>
             <div class="vThumbContainer" > <img src="Assets/images/pic6.JPG" class="vThumb"> </div>
-            <div class="vThumbContainer" > <img src="Assets/images/pic7.JPG" class="vThumb"> </div>
-            <div class="vThumbContainer" > <img src="Assets/images/pic8.JPG" class="vThumb"> </div>
             <div class="vThumbContainer" > <img src="Assets/images/pic9.JPG" class="vThumb"> </div>
         </div>
     </div>
 
+
+
 </div>
-
-<!-- Use any element to open/show the overlay navigation menu -->
-<span onclick="openNav(0)">
-    <img src="Assets/images/pic1.JPG" style="height: 100px">
-</span>
-
-<span onclick="openNav(2)">
-    <img src="Assets/images/pic3.JPG" style="height: 100px">
-</span>
-
-
-<span onclick="openNav(5)">
-    <img src="Assets/images/pic6.JPG" style="height: 100px">
-</span>
-
 
 <script src="Assets/js/galleryfullscreen.js"></script>
 

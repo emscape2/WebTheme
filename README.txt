@@ -37,21 +37,12 @@ Credits:
 
 Known Issues:
 
-
-
-thumbnail bar
-
-functie die de centreElement aanpast bij een element dat al deels geslide isx`
-
-effecten op images die niet nu in midden staan
-effect/image om gekozen tumbnail weer te geven
-borders
-
-optie voor meerdere
-
-opties centraal geregistreerd
-verschillende opties om look te doen
+Mooiere Icons
+Logo erbij doen
+stretch to image height in fullscreen
+icoontjes
 andere elementen dan images in de gallery
+
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view

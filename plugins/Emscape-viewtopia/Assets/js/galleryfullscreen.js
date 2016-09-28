@@ -5,18 +5,29 @@
 var currentIndex;
 var dragStartX;
 var dragStartLeftX;
+var currentViewTopia;
+var currentViewTopiaThumbnail;
 var isDrag = false;
 
+
 /* Open when someone clicks on the span element */
-function openNav(index) {
-    document.getElementById("myNav").style.width = "100%";
+function openNav(index, galleryIndex, navId) {
+    document.getElementById(navId).style.width = "100%";
+    currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
+    currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
     centreElement(index);
     currentIndex = index;
+
+    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
+        {
+            top: '-25%'
+
+        } , 150);
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
+function closeNav(navId) {
+    document.getElementById(navId).style.width = "0%";
 }
 
 function moveOneLeft() {
@@ -40,11 +51,11 @@ function formatToLeftPX(pixels)
 function centreElement(index, startingDisplacement)
 {
     currentIndex = index;
-    var currentWidthHalf =  $('.viewtopiaImage').first().children().eq(index).width() / 2;
+    var currentWidthHalf =  currentViewTopia.children().eq(index).width() / 2;
     var halfScreenWidth = ($(window).width() / 2);
-    var totalSize =  $('.viewtopiaImage').first().children().size();
+    var totalSize =  currentViewTopia.children().size();
     //calculate the index of the image most to the left
-    var firstLeftIndex = index - ((totalSize -1) / 2);
+    var firstLeftIndex = Math.floor(index - ((totalSize -1) / 2));
     if (firstLeftIndex < 0)
     {
         firstLeftIndex = totalSize - 1 + firstLeftIndex;
@@ -67,8 +78,9 @@ function centreElement(index, startingDisplacement)
         {
             i = totalSize - 1;
         }
-        currentLeft = currentLeft -  $('.viewtopiaImage').first().children().eq(i).width();
-        $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
+        currentLeft = currentLeft -  currentViewTopia.children().eq(i).width();
+        currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
+        currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
     while(i != firstLeftIndex)//gaat 1 te ver door
 
@@ -82,24 +94,34 @@ function centreElement(index, startingDisplacement)
         {
             i = 0;
         }
-        $('.viewtopiaImage').first().children().eq(i).css('left', formatToLeftPX(currentLeft));
-        currentLeft = currentLeft +  $('.viewtopiaImage').first().children().eq(i).width();
+        currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
+        currentLeft = currentLeft +  currentViewTopia.children().eq(i).width();
+        currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
     while(i != lastRightIndex)//gaat 1 te ver door
 
 
     // positie dit element goed doen
-    $('.viewtopiaImage').first().children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
+    currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
+    currentViewTopiaThumbnail.children().eq(index).css('top', '10%');
+
 
 
 //reset de parent
-    $('.viewtopiaImage').css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
+    currentViewTopia.css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
 
 }
 
 $('.vThumb').click(function () {
     var index = $(this).parent().index();
-    centreElement(index);
+    centreElement(index,0);
+
+    currentViewTopiaThumbnail.children().eq(index).animate(
+        {
+            top: '-25%'
+
+        } , 150);
+
 })
 
 //on mousclick start registering drag
@@ -155,18 +177,18 @@ function animateToRight(index, startingDisplacement) {
 
 
     //eerst helft breedte this uitrekenen
-    var currentWidthHalf = $('.viewtopiaImage').first().children().eq(index).width() /2;
+    var currentWidthHalf = currentViewTopia.children().eq(index).width() /2;
     var nextWidth;
     var animateWidth;
     var halfScreenWidth = ($(window).width() / 2);
-    var totalSize =  $('.viewtopiaImage').first().children().size();
+    var totalSize =  currentViewTopia.children().size();
     var notLast = false;
 
     centreElement(index, startingDisplacement);
 
 
     //bereken positie binnen array al vantevoren
-    if ($('.viewtopiaImage').first().children().eq(index).next().size() > 0)
+    if (currentViewTopia.children().eq(index).next().size() > 0)
     {
         notLast = true;
     }
@@ -174,11 +196,11 @@ function animateToRight(index, startingDisplacement) {
     // breedte volgende element uitlezen
     if(notLast)
     {
-        nextWidth =$('.viewtopiaImage').first().children().eq(index).next().width();
+        nextWidth =currentViewTopia.children().eq(index).next().width();
     }
     else
     {
-        nextWidth = $('.viewtopiaImage').first().children().eq(index-1).width();
+        nextWidth = currentViewTopia.children().eq(index-1).width();
     }
 
 
@@ -202,6 +224,12 @@ function animateToRight(index, startingDisplacement) {
     {
         currentIndex = 0;
     }
+
+    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
+        {
+            top: '-25%'
+
+        } , 150);
 }
 
 
@@ -209,18 +237,18 @@ function animateToLeft(index , startingDisplacement) {
 
 
     //eerst helft breedte this uitrekenen
-    var currentWidthHalf = $('.viewtopiaImage').first().children().eq(index).width() /2;
+    var currentWidthHalf = currentViewTopia.children().eq(index).width() /2;
     var lastWidth;
     var animateWidth;
     var halfScreenWidth = ($(window).width() / 2);
-    var totalSize =  $('.viewtopiaImage').first().children().size();
+    var totalSize =  currentViewTopia.children().size();
     var notFirst = false;
 
     centreElement(index, startingDisplacement);
 
 
     //bereken positie binnen array al vantevoren
-    if ($('.viewtopiaImage').first().children().eq(index).prev().size() > 0)
+    if (currentViewTopia.children().eq(index).prev().size() > 0)
     {
         notFirst = true;
     }
@@ -228,11 +256,11 @@ function animateToLeft(index , startingDisplacement) {
     // breedte vorige element uitlezen
     if(notFirst)
     {
-        lastWidth =$('.viewtopiaImage').first().children().eq(index-1).width();
+        lastWidth =currentViewTopia.children().eq(index-1).width();
     }
     else
     {
-        lastWidth = $('.viewtopiaImage').first().children().eq(totalSize - 1).width();
+        lastWidth = currentViewTopia.children().eq(totalSize - 1).width();
     }
 
 
@@ -256,5 +284,11 @@ function animateToLeft(index , startingDisplacement) {
     {
         currentIndex = totalSize - 1;
     }
+
+    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
+        {
+            top: '-25%'
+
+        } , 150);
 }
 
