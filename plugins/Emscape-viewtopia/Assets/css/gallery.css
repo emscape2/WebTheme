@@ -116,11 +116,33 @@ img{max-height: 100%}
     border-color: #101012;
 }
 
-
 /* only in Chrome */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 and (min-resolution:.001dpcm) {
     .vThumb {
+        border-style: ridge;
+    }
+}
+
+.videowrapper {
+    position: absolute;
+    height: 100%;
+
+    border-style: solid;
+    border-width: medium;
+    border-color: #101012;
+}
+.videowrapper iframe {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+}
+/* only in Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+    .videowrapper {
         border-style: ridge;
     }
 }

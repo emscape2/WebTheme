@@ -87,22 +87,27 @@
 
 
 img{max-height: 100%}
+.videowrapper {
+    position: absolute;
+    height: 100%;
 
-.viewtopiaThumbnail{
-    position: relative;
-    height: 15vh;
-    top:75vh;
-    overflow: visible;
+    border-style: solid;
+    border-width: medium;
+    border-color: #101012;
 }
-.vThumbContainer{
-    top: 10%;
-    width: 9vw;
-    height: 9vw;
-    overflow: hidden;
-    display: inline;
+.videowrapper iframe {
     position: relative;
-    background-size: contain;
+    top: 0;
+    left: 0;
+    height: 100%;
 
+}
+/* only in Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+    .videowrapper {
+        border-style: ridge;
+    }
 }
 
 .vThumb{
@@ -125,6 +130,24 @@ and (min-resolution:.001dpcm) {
         border-style: ridge;
     }
 }
+
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .viewtopiaImage{
 
 

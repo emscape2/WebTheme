@@ -9,6 +9,9 @@ var currentViewTopia;
 var currentViewTopiaThumbnail;
 var isDrag = false;
 
+$('.videowrapper').ready(function () {
+    $(this).width($(this).height() * 0.5625)
+});
 
 /* Open when someone clicks on the span element */
 function openNav(index, galleryIndex, navId) {
@@ -38,7 +41,6 @@ function closeNav(navId) {
 function moveOneLeft() {
     animateToLeft(currentIndex, 0);
 }
-
 
 function moveOneRight() {
     animateToRight(currentIndex, 0);
