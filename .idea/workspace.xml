@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5a44a1d-e415-4f83-88c5-23c090aad957" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css" afterPath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js" afterPath="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Emscape-viewtopia/viewtopia-demo.html" afterPath="$PROJECT_DIR$/plugins/Emscape-viewtopia/viewtopia-demo.html" />
     </list>
     <ignored path="Website.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,17 +40,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gallery.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gallery.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+            <state relative-caret-position="578">
+              <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="galleryfullscreen.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="galleryfullscreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -65,8 +65,8 @@
       <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
+            <state relative-caret-position="697">
+              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -108,10 +108,10 @@
         <option value="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/sliderScript.js" />
         <option value="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/image-slider.css" />
         <option value="$PROJECT_DIR$/plugins/Image-Slider/with-jquery.html" />
-        <option value="$PROJECT_DIR$/README.txt" />
-        <option value="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css" />
         <option value="$PROJECT_DIR$/plugins/Emscape-viewtopia/viewtopia-demo.html" />
         <option value="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js" />
+        <option value="$PROJECT_DIR$/README.txt" />
+        <option value="$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css" />
       </list>
     </option>
   </component>
@@ -249,7 +249,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149723000" />
+    <option name="totallyTimeSpent" value="152281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -553,11 +553,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.txt">
+    <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
-          <folding />
+        <state relative-caret-position="323">
+          <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -574,21 +576,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css">
+    <entry file="file://$PROJECT_DIR$/README.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+        <state relative-caret-position="697">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/js/galleryfullscreen.js">
+    <entry file="file://$PROJECT_DIR$/plugins/Emscape-viewtopia/Assets/css/gallery.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="578">
+          <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

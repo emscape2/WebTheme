@@ -47,6 +47,7 @@ effecten op images die niet nu in midden staan
 effect/image om gekozen tumbnail weer te geven
 borders
 
+optie voor meerdere
 
 opties centraal geregistreerd
 verschillende opties om look te doen

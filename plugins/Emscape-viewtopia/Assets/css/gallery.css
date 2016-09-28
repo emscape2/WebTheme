@@ -91,20 +91,24 @@ img{max-height: 100%}
     overflow: visible;
 }
 .vThumbContainer{
-    width: 10vh;
-    height: 10vh;
+    width: 6vw;
+    height: 6vw;
     overflow: hidden;
     display: inline;
     position: relative;
     background-size: contain;
+
 }
 
 .vThumb{
-    width: 10vh;
-    height: 10vh;
+    width: 6vw;
+    height: 6vw;
     object-fit: cover;
     overflow: hidden;
     position: relative;
+    border-style: ridge;
+    border-width: medium;
+    border-color: #101012;
 }
 
 .viewtopiaImage{
@@ -124,6 +128,9 @@ img{max-height: 100%}
     position: absolute;
     left: -200%;
 
+    border-style: ridge;
+    border-width: medium;
+    border-color: #101012;
 
     -webkit-user-drag: none;
     -khtml-user-drag: none;
