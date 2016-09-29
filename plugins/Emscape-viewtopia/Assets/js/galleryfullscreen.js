@@ -22,10 +22,15 @@ $('.videowrapper').ready(function () {
  *  @param {Number} galleryIndex - the index of the entire Gallery (when only a single gallery is used, use 0)
  *  @param {String} viewtopiaGalleryId - the name of the Gallery to be opened */
 function openGallery(index, galleryIndex, viewtopiaGalleryId) {
+    //Opens the Gallery.
     document.getElementById(viewtopiaGalleryId).style.width = "100%";
+
+    //Sets the references to current viewtopia content.
     currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
     currentImageTextWrapper = $('.imageTextWrapper').eq(galleryIndex);
+
+    //Ensure the correct position of elements within the Gallery
     if (index > 0) {
         centreElement(index);
     }
@@ -34,7 +39,7 @@ function openGallery(index, galleryIndex, viewtopiaGalleryId) {
     }
         currentIndex = index;
 
-
+    //Selects the current thumbnail
     currentThumbnail(currentIndex);
 }
 
@@ -43,12 +48,9 @@ function openGallery(index, galleryIndex, viewtopiaGalleryId) {
  * @param {String} viewtopiaGalleryId - ID of the Gallery to be closed
  */
 function closeGallery(viewtopiaGalleryId) {
+    unselectAllThumbnails();
     document.getElementById(viewtopiaGalleryId).style.width = "0%";
 
-    currentImageTextWrapper.children().each(function () {
-        $(this).css('display', 'none')
-
-    });
 }
 
 /**
@@ -89,22 +91,24 @@ function centreElement(index, startingDisplacement)
     var currentWidthHalf =  currentViewTopia.children().eq(index).width() / 2;
     var halfScreenWidth = ($(window).width() / 2);
     var totalSize =  currentViewTopia.children().size();
-    //calculate the index of the image most to the left
+
+    //Calculate the index of the image most to the left.
     var firstLeftIndex = Math.ceil(index - ((totalSize) / 2));
     if (firstLeftIndex < 0)
     {
         firstLeftIndex = (totalSize) + firstLeftIndex;
     }
-    //calculate the index of the image most to the right
+    //Calculate the index of the image most to the right.
     var lastRightIndex = firstLeftIndex - 1;
     if (lastRightIndex < 0)
     {
         lastRightIndex = totalSize - 1;
     }
 
-
+    //Calculate the left position of the central element.
     var currentLeft = (-currentWidthHalf);
-    //alle blokken naar links correct positioneren.
+
+    //Position the Gallery elements to the left of the central element correctly.
     var i = index;
     do{
 
@@ -117,9 +121,9 @@ function centreElement(index, startingDisplacement)
         currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
         currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
-    while(i != firstLeftIndex)//gaat niet te ver door
+    while(i != firstLeftIndex)
 
-    //alle blokken rechts goed neerzetten
+    //Position the Gallery elements to the right of the central element correctly.
     currentLeft = currentWidthHalf;
     i = index;
     do{
@@ -133,16 +137,18 @@ function centreElement(index, startingDisplacement)
         currentLeft = currentLeft +  currentViewTopia.children().eq(i).width();
         currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
-    while(i != lastRightIndex)//gaat 1 te ver door
+    while(i != lastRightIndex)
 
 
-    // positie dit element goed doen
+    //Position the current element correctly.
     currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
+
+    //Position the current thumbnail.
     currentViewTopiaThumbnail.children().eq(index).css('top', '10%');
 
 
 
-//reset de parent
+    //Set de position of the parent.
     currentViewTopia.css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
 
 }
@@ -193,6 +199,7 @@ $('.viewtopiaImage').mouseup(function()
     if (isDrag) {
         isDrag = false;
 
+        //Looks if the mouse or tough input was moved significantly enough to slide the Gallery.
         if (event.clientX - dragStartX > 10)
         {
             animateToLeft(currentIndex, event.clientX - dragStartX);
@@ -215,8 +222,6 @@ $('.viewtopiaImage').mouseup(function()
  */
 function animateToRight(index, startingDisplacement) {
 
-
-    //eerst helft breedte this uitrekenen
     var currentWidthHalf = currentViewTopia.children().eq(index).width() /2;
     var nextWidth;
     var animateWidth;
@@ -224,16 +229,17 @@ function animateToRight(index, startingDisplacement) {
     var totalSize =  currentViewTopia.children().size();
     var notLast = false;
 
+    //First ensure the position of all elements is correct to start the animation.
     centreElement(index, startingDisplacement);
 
 
-    //bereken positie binnen array al vantevoren
+    //Check if not the last element inside of the array of Gallery elements.
     if (currentViewTopia.children().eq(index).next().size() > 0)
     {
         notLast = true;
     }
 
-    // breedte volgende element uitlezen
+    //Read the width of the next element.
     if(notLast)
     {
         nextWidth =currentViewTopia.children().eq(index).next().width();
@@ -244,18 +250,19 @@ function animateToRight(index, startingDisplacement) {
     }
 
 
-//animatiebreedte bepalen
+    //Calculate the total width of the animation.
     animateWidth = currentWidthHalf + ( nextWidth / 2);
     var newContainerLeft =  halfScreenWidth - animateWidth;
 
 
 
-    //parent container animeren naar positie naar links
+    //Animate the entire gallery instead of loose images.
     $('.viewtopiaImage').animate(
         {
        left: formatToLeftPX(newContainerLeft)
     }, 500);
 
+    //Change currentIndex acordingly.
     if (currentIndex < totalSize - 1)
     {
         currentIndex = currentIndex + 1;
@@ -265,6 +272,7 @@ function animateToRight(index, startingDisplacement) {
         currentIndex = 0;
     }
 
+    //Ensure the thumbnail is handled properly.
     currentThumbnail(currentIndex);
 }
 
@@ -275,9 +283,6 @@ function animateToRight(index, startingDisplacement) {
  * @param {Number} startingDisplacement - starting position of the animation when animating
  */
 function animateToLeft(index , startingDisplacement) {
-
-
-    //eerst helft breedte this uitrekenen
     var currentWidthHalf = currentViewTopia.children().eq(index).width() /2;
     var lastWidth;
     var animateWidth;
@@ -285,16 +290,17 @@ function animateToLeft(index , startingDisplacement) {
     var totalSize =  currentViewTopia.children().size();
     var notFirst = false;
 
+    //First ensure the position of all elements is correct to start the animation.
     centreElement(index, startingDisplacement);
 
 
-    //bereken positie binnen array al vantevoren
+    //Check if not the last element inside of the array of Gallery elements.
     if (currentViewTopia.children().eq(index).prev().size() > 0)
     {
         notFirst = true;
     }
 
-    // breedte vorige element uitlezen
+    //Read the width of the previous element.
     if(notFirst)
     {
         lastWidth =currentViewTopia.children().eq(index-1).width();
@@ -305,18 +311,19 @@ function animateToLeft(index , startingDisplacement) {
     }
 
 
-//animatiebreedte bepalen
+    //Calculate the total width of the animation.
     animateWidth = currentWidthHalf + ( lastWidth / 2);
     var newContainerLeft =  halfScreenWidth + animateWidth;
 
 
 
-    //parent container animeren naar positie naar links
+    //Animate the entire gallery instead of loose images.
     $('.viewtopiaImage').animate(
         {
             left: formatToLeftPX(newContainerLeft)
         }, 500);
 
+    //Change currentIndex acordingly.
     if (currentIndex > 0)
     {
         currentIndex = currentIndex - 1;
@@ -326,19 +333,28 @@ function animateToLeft(index , startingDisplacement) {
         currentIndex = totalSize - 1;
     }
 
+    //Ensure the thumbnail is handled properly.
     currentThumbnail(currentIndex);
 }
 
 /**
- * Changes the behavior of all thumnails to display the correct thumbnail as active
- * @param {Number} currentIndex - index of the thumbnail to be activated
+ * Sets all thumbnail behavior to non active within the Gallery
  */
-function currentThumbnail(currentIndex){
-
+function unselectAllThumbnails() {
     currentImageTextWrapper.children().each(function () {
         $(this).css('display', 'none')
 
     });
+}
+
+/**
+ * Changes the behavior of all thumnails to display the correct thumbnail as active, also displays correct text
+ * @param {Number} currentIndex - index of the thumbnail to be activated
+ */
+function currentThumbnail(currentIndex){
+
+    unselectAllThumbnails();
+
     currentImageTextWrapper.children().eq(currentIndex).css('display', 'block');
 
     currentViewTopiaThumbnail.children().eq(currentIndex).animate(

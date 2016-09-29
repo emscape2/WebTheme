@@ -38,6 +38,12 @@ Credits:
 Known Issues:
 
 in mouseup centreelement goed doen
+leg de left positie van de gallery bij het sluiten (en maybe openen) ook weer centraal
+optimaliseer nladen images dmv gebruik van de css positionering van de pic id
+alle ref van centreelement nakijken
+kijken waarom in centreelement de tumbnail css veranderd wordt
+
+
 Logo erbij doen
 Betere icons
 comments
@@ -45,8 +51,10 @@ documentatie
 alle functionaliteit opschrijven
 
 border sizes opnemen in galleryfullscreen script
+kijken hoe je inladen efficienter kan laten verlopen
 kijken hoe mensen global parameters/ config settings in javascript definieren
 
+zorgen dat je je efforts in de files erbij zet
 
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is
