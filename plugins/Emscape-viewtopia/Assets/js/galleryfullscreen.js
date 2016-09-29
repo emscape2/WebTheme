@@ -96,6 +96,8 @@ function centreElement(index, startingDisplacement)
     var currentWidthHalf =  currentViewTopia.children().eq(index).width() / 2;
     var halfScreenWidth = ($(window).width() / 2);
     var totalSize =  currentViewTopia.children().size();
+    var bordersize = currentViewTopia.children().eq(index).css("border-left-width");
+    bordersize = parseInt(bordersize) * 2;
 
     //Calculate the index of the image most to the left.
     var firstLeftIndex = Math.ceil(index - ((totalSize) / 2));
@@ -122,7 +124,7 @@ function centreElement(index, startingDisplacement)
         {
             i = totalSize - 1;
         }
-        currentLeft = currentLeft -  currentViewTopia.children().eq(i).width();
+        currentLeft = currentLeft - bordersize - currentViewTopia.children().eq(i).width();
         currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
         currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
@@ -139,20 +141,20 @@ function centreElement(index, startingDisplacement)
             i = 0;
         }
         currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
-        currentLeft = currentLeft +  currentViewTopia.children().eq(i).width();
+        currentLeft = currentLeft + bordersize + currentViewTopia.children().eq(i).width();
         currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
     while(i != lastRightIndex)
 
 
     //Position the current element correctly.
-    currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
+    currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf - (bordersize /2) ));
 
     //Repostion the last thumbnail.
     currentViewTopiaThumbnail.children().eq(index).css('top', '10%');
 
     //Set de position of the parent.
-    currentViewTopia.css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
+    currentViewTopia.css('left', formatToLeftPX(halfScreenWidth - (bordersize*2) + startingDisplacement));
 
 }
 

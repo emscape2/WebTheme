@@ -108,13 +108,6 @@
     border-color: #501012;
 }
 
-/* only in Chrome */
-@media screen and (-webkit-min-device-pixel-ratio:0)
-and (min-resolution:.001dpcm) {
-    .vThumb {
-        border-style: ridge;
-    }
-}
 
 .imageTextWrapper{
 
@@ -135,13 +128,6 @@ and (min-resolution:.001dpcm) {
     border-radius: 2vh;
 }
 
-/* only in Chrome */
-@media screen and (-webkit-min-device-pixel-ratio:0)
-and (min-resolution:.001dpcm) {
-    .imageText {
-        border-style: ridge;
-    }
-}
 
 
 .videowrapper {
@@ -158,13 +144,6 @@ and (min-resolution:.001dpcm) {
     left: 0;
     height: 100%;
 
-}
-/* only in Chrome */
-@media screen and (-webkit-min-device-pixel-ratio:0)
-and (min-resolution:.001dpcm) {
-    .videowrapper {
-        border-style: ridge;
-    }
 }
 
 
@@ -210,13 +189,6 @@ and (min-resolution:.001dpcm) {
 }
 
 
-/* only in Chrome */
-@media screen and (-webkit-min-device-pixel-ratio:0)
-and (min-resolution:.001dpcm) {
-    .pic {
-        border-style: ridge;
-    }
-}
 
 
 #pic1{

@@ -37,18 +37,17 @@ Credits:
 
 Known Issues:
 
-alle ref van centreelement nakijken
 
-viewtopiaImage naar viewtopiaGallery oid hernoemen
-
-Logo erbij doen
 Betere icons
 documentatie
 alle functionaliteit opschrijven
+opties voor javascript in CSS definieren dmv css variables
 
-border sizes opnemen in galleryfullscreen script
+
+Logo erbij doen
+
+
 kijken hoe je inladen efficienter kan laten verlopen
-kijken hoe mensen global parameters/ config settings in javascript definieren
 
 zorgen dat je je efforts in de files erbij zet
 
