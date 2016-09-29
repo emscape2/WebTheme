@@ -37,10 +37,15 @@ Credits:
 
 Known Issues:
 
+in mouseup centreelement goed doen
 Logo erbij doen
 Betere icons
+comments
+documentatie
 alle functionaliteit opschrijven
 
+border sizes opnemen in galleryfullscreen script
+kijken hoe mensen global parameters/ config settings in javascript definieren
 
 
 

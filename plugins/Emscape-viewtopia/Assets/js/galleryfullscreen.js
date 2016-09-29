@@ -10,13 +10,19 @@ var currentViewTopiaThumbnail;
 var currentImageTextWrapper;
 var isDrag = false;
 
+
+/* when iframe Video's are used the width of the frame is calculated according to the height of the frame, which automatically adjusts to the height of the frame. */
 $('.videowrapper').ready(function () {
     $(this).width($(this).height() * 0.5625)
 });
 
-/* Open when someone clicks on the span element */
-function openGallery(index, galleryIndex, navId) {
-    document.getElementById(navId).style.width = "100%";
+/**
+ *  Open the gallery with the right element centered, called when someone clicks on a span element.
+ *  @param {Number} index - the index of the element within the Gallery
+ *  @param {Number} galleryIndex - the index of the entire Gallery (when only a single gallery is used, use 0)
+ *  @param {String} viewtopiaGalleryId - the name of the Gallery to be opened */
+function openGallery(index, galleryIndex, viewtopiaGalleryId) {
+    document.getElementById(viewtopiaGalleryId).style.width = "100%";
     currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
     currentImageTextWrapper = $('.imageTextWrapper').eq(galleryIndex);
@@ -32,24 +38,12 @@ function openGallery(index, galleryIndex, navId) {
     currentThumbnail(currentIndex);
 }
 
-function currentThumbnail(currentIndex){
-
-    currentImageTextWrapper.children().each(function () {
-        $(this).css('display', 'none')
-
-    });
-    currentImageTextWrapper.children().eq(currentIndex).css('display', 'block');
-
-    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
-        {
-            top: '-25%'
-
-        } , 150);
-}
-
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeGallery(navId) {
-    document.getElementById(navId).style.width = "0%";
+/**
+ * Called when the Gallery overlay has to be closed.
+ * @param {String} viewtopiaGalleryId - ID of the Gallery to be closed
+ */
+function closeGallery(viewtopiaGalleryId) {
+    document.getElementById(viewtopiaGalleryId).style.width = "0%";
 
     currentImageTextWrapper.children().each(function () {
         $(this).css('display', 'none')
@@ -57,14 +51,25 @@ function closeGallery(navId) {
     });
 }
 
+/**
+ * Called when the "left" arrow has been clicked.
+ */
 function moveOneLeft() {
     animateToLeft(currentIndex, 0);
 }
 
+/**
+ * Called when the "right" arrow has been clicked.
+ */
 function moveOneRight() {
     animateToRight(currentIndex, 0);
 }
 
+/**
+ * Formats data as a string with 'px' added on the end.
+ * @param pixels - the data that leads to the number of pixels
+ * @returns {string}
+ */
 function formatToLeftPX(pixels)
 {
     var toReturn =    pixels.toString();
@@ -73,7 +78,11 @@ function formatToLeftPX(pixels)
 }
 
 
-
+/**
+ * Centres an element within the Gallery.
+ * @param {Number} index - the index of the element within the Gallery
+ * @param {Number} startingDisplacement - starting position of the animation when animating
+ */
 function centreElement(index, startingDisplacement)
 {
     currentIndex = index;
@@ -138,6 +147,9 @@ function centreElement(index, startingDisplacement)
 
 }
 
+/**
+ * When a thumbnail image is clicked, this ensures the positioning of the Gallery and its elements.
+ */
 $('.vThumb').click(function () {
     var index = $(this).parent().index();
     centreElement(index,0);
@@ -146,7 +158,9 @@ $('.vThumb').click(function () {
 
 })
 
-//on mousclick start registering drag
+/**
+ * on mousclick start registering drag
+ */
 $('.viewtopiaImage').mousedown(function ()
 {
     if (!isDrag)
@@ -155,14 +169,11 @@ $('.viewtopiaImage').mousedown(function ()
         dragStartX = event.clientX;
         isDrag = true;
     }
-
-
-
-
-
 });
 
-//registers the mouse movement and scrolls the entire bar in the right direction
+/**
+ * registers the mouse movement and scrolls the entire bar in the right direction
+ */
 $('.viewtopiaImage').mousemove( function()
 {
     if (isDrag)
@@ -173,7 +184,9 @@ $('.viewtopiaImage').mousemove( function()
     }
 });
 
-//when the mouse is released the elements moveback into place
+/**
+ * when the mouse is released the elements moveback into place
+ */
 $('.viewtopiaImage').mouseup(function()
 {
 
@@ -195,6 +208,11 @@ $('.viewtopiaImage').mouseup(function()
     }
 });
 
+/**
+ * Moves the Gallery one position to the right.
+ * @param {Number} index - index of the current element
+ * @param {Number} startingDisplacement - starting position of the animation when animating
+ */
 function animateToRight(index, startingDisplacement) {
 
 
@@ -251,6 +269,11 @@ function animateToRight(index, startingDisplacement) {
 }
 
 
+/**
+ * Moves the Gallery one position to the left.
+ * @param {Number} index - index of the current element
+ * @param {Number} startingDisplacement - starting position of the animation when animating
+ */
 function animateToLeft(index , startingDisplacement) {
 
 
@@ -304,5 +327,24 @@ function animateToLeft(index , startingDisplacement) {
     }
 
     currentThumbnail(currentIndex);
+}
+
+/**
+ * Changes the behavior of all thumnails to display the correct thumbnail as active
+ * @param {Number} currentIndex - index of the thumbnail to be activated
+ */
+function currentThumbnail(currentIndex){
+
+    currentImageTextWrapper.children().each(function () {
+        $(this).css('display', 'none')
+
+    });
+    currentImageTextWrapper.children().eq(currentIndex).css('display', 'block');
+
+    currentViewTopiaThumbnail.children().eq(currentIndex).animate(
+        {
+            top: '-25%'
+
+        } , 150);
 }
 
