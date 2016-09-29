@@ -37,12 +37,11 @@ Credits:
 
 Known Issues:
 
-in mouseup centreelement goed doen
-leg de left positie van de gallery bij het sluiten (en maybe openen) ook weer centraal
 optimaliseer nladen images dmv gebruik van de css positionering van de pic id
 alle ref van centreelement nakijken
 kijken waarom in centreelement de tumbnail css veranderd wordt
 
+viewtopiaImage naar viewtopiaGallery oid hernoemen
 
 Logo erbij doen
 Betere icons

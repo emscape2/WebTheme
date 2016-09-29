@@ -49,7 +49,12 @@ function openGallery(index, galleryIndex, viewtopiaGalleryId) {
  */
 function closeGallery(viewtopiaGalleryId) {
     unselectAllThumbnails();
+
+    var halfScreenWidth = ($(window).width() / 2);
+    currentViewTopia.css('left', formatToLeftPX(halfScreenWidth));
+
     document.getElementById(viewtopiaGalleryId).style.width = "0%";
+
 
 }
 
@@ -208,10 +213,6 @@ $('.viewtopiaImage').mouseup(function()
         {
             animateToRight(currentIndex, event.clientX - dragStartX);
         }
-        else
-            {
-            centreElement(currentIndex); // hier moet nog animatie terug naar centre voor in de plaats komen.
-        }
     }
 });
 
@@ -257,7 +258,7 @@ function animateToRight(index, startingDisplacement) {
 
 
     //Animate the entire gallery instead of loose images.
-    $('.viewtopiaImage').animate(
+    currentViewTopia.animate(
         {
        left: formatToLeftPX(newContainerLeft)
     }, 500);
@@ -318,7 +319,7 @@ function animateToLeft(index , startingDisplacement) {
 
 
     //Animate the entire gallery instead of loose images.
-    $('.viewtopiaImage').animate(
+    currentViewTopia.animate(
         {
             left: formatToLeftPX(newContainerLeft)
         }, 500);
