@@ -15,7 +15,7 @@ $('.videowrapper').ready(function () {
 });
 
 /* Open when someone clicks on the span element */
-function openNav(index, galleryIndex, navId) {
+function openGallery(index, galleryIndex, navId) {
     document.getElementById(navId).style.width = "100%";
     currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
@@ -48,7 +48,7 @@ function currentThumbnail(currentIndex){
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav(navId) {
+function closeGallery(navId) {
     document.getElementById(navId).style.width = "0%";
 
     currentImageTextWrapper.children().each(function () {

@@ -38,7 +38,7 @@ Credits:
 Known Issues:
 
 Logo erbij doen
-Wit thema doen
+Betere icons
 alle functionaliteit opschrijven
 
 

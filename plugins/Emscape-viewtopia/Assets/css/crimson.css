@@ -7,8 +7,8 @@
     z-index: 100; /* Sit on top */
     left: 0;
     top: 0;
-    background-color: rgb(255,235,240); /* Black fallback color */
-    background-color: rgba(255,240,235, 0.9); /* Black w/opacity */
+    background-color: rgb(100,30,25); /* Black fallback color */
+    background-color: rgba(40,22,19 , 0.95); /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -54,7 +54,7 @@
     height: 6vh;
     width: 6vh;
     top: 47vh;
-    background-image: url("arrow2R.png");
+    background-image: url("arrowR.png");
     background-size: cover;
 
 }
@@ -69,7 +69,7 @@
     height: 6vh;
     width: 6vh;
     top: 47vh;
-    background-image: url("arrow2.png");
+    background-image: url("arrow.png");
     background-size: cover;
 
 }
@@ -85,19 +85,10 @@
 }
 
 
-
-img{max-height: 100%}
-
-.viewtopiaThumbnail{
-    position: relative;
-    height: 12vh;
-    top:80vh;
-    overflow: visible;
-}
 .vThumbContainer{
     top: 10%;
-    width: 8vw;
-    height: 8vw;
+    width: 6vw;
+    height: 6vw;
     overflow: hidden;
     display: inline;
     position: relative;
@@ -106,15 +97,15 @@ img{max-height: 100%}
 }
 
 .vThumb{
-    width: 8vw;
-    height: 8vw;
+    width: 9vw;
+    height: 9vw;
+    border-radius: 1vw;
     object-fit: cover;
     overflow: hidden;
     position: relative;
-    border-radius: 0.5vw;
     border-style: solid;
     border-width: medium;
-    border-color: #2e2a31;
+    border-color: #501012;
 }
 
 /* only in Chrome */
@@ -130,19 +121,20 @@ and (min-resolution:.001dpcm) {
 }
 
 .imageText{
-    background-color: #b4a6a6;
-    color: #3f413e;
+    background-color: #101012;
+    color: #85221D;
     display: none;
     position: fixed;
-    top: 2vh;
-    border-radius: 0.5vw;
-    font-size: 5vh;
-    font-family: Georgia, sans-serif;
-    border-color: #2e2a31;
-    width: 30vw;
-    left: 35vw;
+    top: 1vh;
+    font-size: 6vh;
+    font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    border-color: #501012;
+    width: 36vw;
+    left: 32vw;
     text-align: center;
+    border-radius: 2vh;
 }
+
 /* only in Chrome */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 and (min-resolution:.001dpcm) {
@@ -151,13 +143,14 @@ and (min-resolution:.001dpcm) {
     }
 }
 
+
 .videowrapper {
     position: absolute;
     height: 100%;
 
     border-style: solid;
     border-width: medium;
-    border-color: #2e2a31;
+    border-color: #501012;
 }
 .videowrapper iframe {
     position: relative;
@@ -173,33 +166,41 @@ and (min-resolution:.001dpcm) {
         border-style: ridge;
     }
 }
+
+
+.viewtopiaThumbnail{
+    position: relative;
+    height: 10vh;
+    top:75vh;
+    overflow: visible;
+}
 .viewtopiaImage{
 
 
     position: absolute;
     left: 50%;
-    height: 75.75vh;
+    height: 75vh;
     width: 100vw;
     display: inline;
     overflow: visible;
-    border-radius: 1vw;
 }
 
 
 
 .pic{
     position: absolute;
+    height: 100%;
+    border-radius: 3vh;
     left: -200%;
     border-style: solid;
     border-width: medium;
-    border-color: #2e2a31;
-    height: 100%;
+    border-color: #501012;
+
     -khtml-user-select: none;
     -o-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    border-radius: 1vw;
 
     -webkit-user-drag: none;
     -khtml-user-drag: none;
