@@ -37,15 +37,12 @@ Credits:
 
 Known Issues:
 
-optimaliseer nladen images dmv gebruik van de css positionering van de pic id
 alle ref van centreelement nakijken
-kijken waarom in centreelement de tumbnail css veranderd wordt
 
 viewtopiaImage naar viewtopiaGallery oid hernoemen
 
 Logo erbij doen
 Betere icons
-comments
 documentatie
 alle functionaliteit opschrijven
 

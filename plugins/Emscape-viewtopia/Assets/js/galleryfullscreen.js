@@ -148,10 +148,8 @@ function centreElement(index, startingDisplacement)
     //Position the current element correctly.
     currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
 
-    //Position the current thumbnail.
+    //Repostion the last thumbnail.
     currentViewTopiaThumbnail.children().eq(index).css('top', '10%');
-
-
 
     //Set de position of the parent.
     currentViewTopia.css('left', formatToLeftPX(halfScreenWidth + startingDisplacement));
