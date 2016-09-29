@@ -11,9 +11,9 @@ var currentImageTextWrapper;
 var isDrag = false;
 
 
-/* when iframe Video's are used the width of the frame is calculated according to the height of the frame, which automatically adjusts to the height of the frame. */
-$('.videowrapper').ready(function () {
-    $(this).width($(this).height() * 0.5625)
+/* when iframe Video's are used the width of the frame is calculated according to the height of the frame, which automatically adjusts to the height of the frame.*/
+$('.videowrapper').load(function () {
+    $(this).width($(this).height() / 0.5625)
 });
 
 /**
@@ -205,13 +205,18 @@ $('.viewtopiaGallery').mouseup(function()
         isDrag = false;
 
         //Looks if the mouse or tough input was moved significantly enough to slide the Gallery.
-        if (event.clientX - dragStartX > 10)
-        {
+        if (event.clientX - dragStartX > 10) {
             animateToLeft(currentIndex, event.clientX - dragStartX);
         }
-        else if (dragStartX - event.clientX > 10)
-        {
+        else if (dragStartX - event.clientX > 10) {
             animateToRight(currentIndex, event.clientX - dragStartX);
+        }
+        else {
+            var currentLeftPosition = $(this).position().left - event.clientX + dragStartX;
+            currentViewTopia.animate(
+                {
+                    left: formatToLeftPX(currentLeftPosition)
+                }, 100);
         }
     }
 });

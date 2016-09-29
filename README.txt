@@ -37,19 +37,19 @@ Credits:
 
 Known Issues:
 
+bij animatie afstandf rekening houden met de border
+testen op mobile
+
 
 Betere icons
 documentatie
-alle functionaliteit opschrijven
-opties voor javascript in CSS definieren dmv css variables
-
+alle functionaliteit opschrijven+ ideen
 
 Logo erbij doen
 
 
-kijken hoe je inladen efficienter kan laten verlopen
 
-zorgen dat je je efforts in de files erbij zet
+zorgen dat je je efforts in de files erbij comment
 
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is

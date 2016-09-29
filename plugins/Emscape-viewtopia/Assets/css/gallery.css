@@ -96,8 +96,8 @@ img{max-height: 100%}
 }
 .vThumbContainer{
     top: 10%;
-    width: 6vw;
-    height: 6vw;
+    width: 10vh;
+    height: 10vh;
     overflow: hidden;
     display: inline;
     position: relative;
@@ -106,8 +106,8 @@ img{max-height: 100%}
 }
 
 .vThumb{
-    width: 6vw;
-    height: 6vw;
+    width: 10vh;
+    height: 10vh;
     object-fit: cover;
     overflow: hidden;
     position: relative;
@@ -151,8 +151,8 @@ and (min-resolution:.001dpcm) {
 
 .videowrapper {
     position: absolute;
-    height: 100%;
-
+    height: 80vh;
+    width: 142vh;
     border-style: solid;
     border-width: medium;
     border-color: #101012;
@@ -162,6 +162,15 @@ and (min-resolution:.001dpcm) {
     top: 0;
     left: 0;
     height: 100%;
+    width: 100%;
+}
+
+.videowrapper video {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
 
 }
 /* only in Chrome */
