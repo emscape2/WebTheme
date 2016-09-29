@@ -26,7 +26,7 @@ function openGallery(index, galleryIndex, viewtopiaGalleryId) {
     document.getElementById(viewtopiaGalleryId).style.width = "100%";
 
     //Sets the references to current viewtopia content.
-    currentViewTopia = $('.viewtopiaImage').eq(galleryIndex) ;
+    currentViewTopia = $('.viewtopiaGallery').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
     currentImageTextWrapper = $('.imageTextWrapper').eq(galleryIndex);
 
@@ -170,7 +170,7 @@ $('.vThumb').click(function () {
 /**
  * on mousclick start registering drag
  */
-$('.viewtopiaImage').mousedown(function ()
+$('.viewtopiaGallery').mousedown(function ()
 {
     if (!isDrag)
     {
@@ -183,7 +183,7 @@ $('.viewtopiaImage').mousedown(function ()
 /**
  * registers the mouse movement and scrolls the entire bar in the right direction
  */
-$('.viewtopiaImage').mousemove( function()
+$('.viewtopiaGallery').mousemove( function()
 {
     if (isDrag)
     {
@@ -196,7 +196,7 @@ $('.viewtopiaImage').mousemove( function()
 /**
  * when the mouse is released the elements moveback into place
  */
-$('.viewtopiaImage').mouseup(function()
+$('.viewtopiaGallery').mouseup(function()
 {
 
     if (isDrag) {
