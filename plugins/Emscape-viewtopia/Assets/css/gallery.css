@@ -114,6 +114,10 @@ img{max-height: 100%}
     border-style: solid;
     border-width: medium;
     border-color: #101012;
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 /* only in Chrome */
@@ -193,7 +197,7 @@ and (min-resolution:.001dpcm) {
 
 
 
-.pic{
+.viewtopiaPic {
     position: absolute;
     left: -200%;
     border-style: solid;
@@ -217,7 +221,7 @@ and (min-resolution:.001dpcm) {
 /* only in Chrome */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 and (min-resolution:.001dpcm) {
-    .pic {
+    .viewtopiaPic {
         border-style: ridge;
     }
 }

@@ -37,20 +37,11 @@ Credits:
 
 Known Issues:
 
-bij animatie afstandf rekening houden met de border
-testen op mobile
-
+grijs strak thema met gesloten thumbnails
 
 Betere icons
-documentatie
-alle functionaliteit opschrijven+ ideen
-
 Logo erbij doen
-
-
-
 zorgen dat je je efforts in de files erbij comment
-
 
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view

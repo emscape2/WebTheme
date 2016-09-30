@@ -2,13 +2,19 @@
  * Created by Emscape on 21-9-2016.
  */
 
-var currentIndex;
-var dragStartX;
-var dragStartLeftX;
+var viewtopiaCurrentIndex;
+var viewtopiaDragStartX;
+var viewtopiaDragStartLeftX;
 var currentViewTopia;
 var currentViewTopiaThumbnail;
-var currentImageTextWrapper;
-var isDrag = false;
+var currentViewtopiaImageTextWrapper;
+var viewtopiaIsDrag = false;
+
+//now follow the setting variables
+var viewtopiaAnimSpeed = 100;
+var viewtopiaThumbnailStyle = 1; //3 indicates moving thumbnails, 2 other border colors, 1 overlay effects, 0 means nothing.
+var viewtopiaThumbnailHighlightColor = '#DDDDDD';
+var viewtopiaThumbnailNormalColor = '#000000';
 
 
 /* when iframe Video's are used the width of the frame is calculated according to the height of the frame, which automatically adjusts to the height of the frame.*/
@@ -28,7 +34,7 @@ function openGallery(index, galleryIndex, viewtopiaGalleryId) {
     //Sets the references to current viewtopia content.
     currentViewTopia = $('.viewtopiaGallery').eq(galleryIndex) ;
     currentViewTopiaThumbnail = $('.viewtopiaThumbnail').eq(galleryIndex);
-    currentImageTextWrapper = $('.imageTextWrapper').eq(galleryIndex);
+    currentViewtopiaImageTextWrapper = $('.imageTextWrapper').eq(galleryIndex);
 
     //Ensure the correct position of elements within the Gallery
     if (index > 0) {
@@ -37,10 +43,10 @@ function openGallery(index, galleryIndex, viewtopiaGalleryId) {
     else {
         centreElement(0);
     }
-        currentIndex = index;
+        viewtopiaCurrentIndex = index;
 
     //Selects the current thumbnail
-    currentThumbnail(currentIndex);
+    currentThumbnail(viewtopiaCurrentIndex);
 }
 
 /**
@@ -62,14 +68,14 @@ function closeGallery(viewtopiaGalleryId) {
  * Called when the "left" arrow has been clicked.
  */
 function moveOneLeft() {
-    animateToLeft(currentIndex, 0);
+    animateToLeft(viewtopiaCurrentIndex, 0);
 }
 
 /**
  * Called when the "right" arrow has been clicked.
  */
 function moveOneRight() {
-    animateToRight(currentIndex, 0);
+    animateToRight(viewtopiaCurrentIndex, 0);
 }
 
 /**
@@ -92,7 +98,7 @@ function formatToLeftPX(pixels)
  */
 function centreElement(index, startingDisplacement)
 {
-    currentIndex = index;
+    viewtopiaCurrentIndex = index;
     var currentWidthHalf =  currentViewTopia.children().eq(index).width() / 2;
     var halfScreenWidth = ($(window).width() / 2);
     var totalSize =  currentViewTopia.children().size();
@@ -126,7 +132,6 @@ function centreElement(index, startingDisplacement)
         }
         currentLeft = currentLeft - bordersize - currentViewTopia.children().eq(i).width();
         currentViewTopia.children().eq(i).css('left', formatToLeftPX(currentLeft));
-        currentViewTopiaThumbnail.children().eq(i).css('top', '10%');
     }
     while(i != firstLeftIndex)
 
@@ -148,7 +153,7 @@ function centreElement(index, startingDisplacement)
 
 
     //Position the current element correctly.
-    currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf - (bordersize /2) ));
+    currentViewTopia.children().eq(index).css('left', formatToLeftPX(-currentWidthHalf));
 
     //Repostion the last thumbnail.
     currentViewTopiaThumbnail.children().eq(index).css('top', '10%');
@@ -174,11 +179,11 @@ $('.vThumb').click(function () {
  */
 $('.viewtopiaGallery').mousedown(function ()
 {
-    if (!isDrag)
+    if (!viewtopiaIsDrag)
     {
-        dragStartLeftX = $(this).position().left;
-        dragStartX = event.clientX;
-        isDrag = true;
+        viewtopiaDragStartLeftX = $(this).position().left;
+        viewtopiaDragStartX = event.clientX;
+        viewtopiaIsDrag = true;
     }
 });
 
@@ -187,11 +192,11 @@ $('.viewtopiaGallery').mousedown(function ()
  */
 $('.viewtopiaGallery').mousemove( function()
 {
-    if (isDrag)
+    if (viewtopiaIsDrag)
     {
-        var newLeft = dragStartLeftX + (event.clientX - dragStartX) ;
+        var newLeft = viewtopiaDragStartLeftX + (event.clientX - viewtopiaDragStartX) ;
         $(this).css('left', formatToLeftPX(newLeft));
-        isDrag= isDrag;
+        viewtopiaIsDrag= viewtopiaIsDrag;
     }
 });
 
@@ -201,22 +206,22 @@ $('.viewtopiaGallery').mousemove( function()
 $('.viewtopiaGallery').mouseup(function()
 {
 
-    if (isDrag) {
-        isDrag = false;
+    if (viewtopiaIsDrag) {
+        viewtopiaIsDrag = false;
 
         //Looks if the mouse or tough input was moved significantly enough to slide the Gallery.
-        if (event.clientX - dragStartX > 10) {
-            animateToLeft(currentIndex, event.clientX - dragStartX);
+        if (event.clientX - viewtopiaDragStartX > 10) {
+            animateToLeft(viewtopiaCurrentIndex, event.clientX - viewtopiaDragStartX);
         }
-        else if (dragStartX - event.clientX > 10) {
-            animateToRight(currentIndex, event.clientX - dragStartX);
+        else if (viewtopiaDragStartX - event.clientX > 10) {
+            animateToRight(viewtopiaCurrentIndex, event.clientX - viewtopiaDragStartX);
         }
         else {
-            var currentLeftPosition = $(this).position().left - event.clientX + dragStartX;
+            var currentLeftPosition = $(this).position().left - event.clientX + viewtopiaDragStartX;
             currentViewTopia.animate(
                 {
                     left: formatToLeftPX(currentLeftPosition)
-                }, 100);
+                }, viewtopiaAnimSpeed);
         }
     }
 });
@@ -234,6 +239,8 @@ function animateToRight(index, startingDisplacement) {
     var halfScreenWidth = ($(window).width() / 2);
     var totalSize =  currentViewTopia.children().size();
     var notLast = false;
+    var bordersize = currentViewTopia.children().eq(index).css("border-left-width");
+    bordersize = parseInt(bordersize) * 2;
 
     //First ensure the position of all elements is correct to start the animation.
     centreElement(index, startingDisplacement);
@@ -258,7 +265,7 @@ function animateToRight(index, startingDisplacement) {
 
     //Calculate the total width of the animation.
     animateWidth = currentWidthHalf + ( nextWidth / 2);
-    var newContainerLeft =  halfScreenWidth - animateWidth;
+    var newContainerLeft =  halfScreenWidth - animateWidth - 2 * bordersize;
 
 
 
@@ -266,20 +273,20 @@ function animateToRight(index, startingDisplacement) {
     currentViewTopia.animate(
         {
        left: formatToLeftPX(newContainerLeft)
-    }, 500);
+    }, 5 * viewtopiaAnimSpeed);
 
-    //Change currentIndex acordingly.
-    if (currentIndex < totalSize - 1)
+    //Change viewtopiaCurrentIndex acordingly.
+    if (viewtopiaCurrentIndex < totalSize - 1)
     {
-        currentIndex = currentIndex + 1;
+        viewtopiaCurrentIndex = viewtopiaCurrentIndex + 1;
     }
     else
     {
-        currentIndex = 0;
+        viewtopiaCurrentIndex = 0;
     }
 
     //Ensure the thumbnail is handled properly.
-    currentThumbnail(currentIndex);
+    currentThumbnail(viewtopiaCurrentIndex);
 }
 
 
@@ -295,6 +302,8 @@ function animateToLeft(index , startingDisplacement) {
     var halfScreenWidth = ($(window).width() / 2);
     var totalSize =  currentViewTopia.children().size();
     var notFirst = false;
+    var bordersize = currentViewTopia.children().eq(index).css("border-left-width");
+    bordersize = parseInt(bordersize) * 2;
 
     //First ensure the position of all elements is correct to start the animation.
     centreElement(index, startingDisplacement);
@@ -319,7 +328,7 @@ function animateToLeft(index , startingDisplacement) {
 
     //Calculate the total width of the animation.
     animateWidth = currentWidthHalf + ( lastWidth / 2);
-    var newContainerLeft =  halfScreenWidth + animateWidth;
+    var newContainerLeft =  halfScreenWidth + animateWidth - 2 * bordersize;
 
 
 
@@ -327,30 +336,50 @@ function animateToLeft(index , startingDisplacement) {
     currentViewTopia.animate(
         {
             left: formatToLeftPX(newContainerLeft)
-        }, 500);
+        }, 5 * viewtopiaAnimSpeed);
 
-    //Change currentIndex acordingly.
-    if (currentIndex > 0)
+    //Change viewtopiaCurrentIndex acordingly.
+    if (viewtopiaCurrentIndex > 0)
     {
-        currentIndex = currentIndex - 1;
+        viewtopiaCurrentIndex = viewtopiaCurrentIndex - 1;
     }
     else
     {
-        currentIndex = totalSize - 1;
+        viewtopiaCurrentIndex = totalSize - 1;
     }
 
     //Ensure the thumbnail is handled properly.
-    currentThumbnail(currentIndex);
+    currentThumbnail(viewtopiaCurrentIndex);
 }
 
 /**
  * Sets all thumbnail behavior to non active within the Gallery
  */
 function unselectAllThumbnails() {
-    currentImageTextWrapper.children().each(function () {
+    currentViewtopiaImageTextWrapper.children().each(function () {
         $(this).css('display', 'none')
-
     });
+
+    switch (viewtopiaThumbnailStyle){
+        case 3:
+            currentViewTopiaThumbnail.children().each(function(){
+                $(this).css('top', '10%')
+            });
+            break;
+        case 2:
+            currentViewTopiaThumbnail.children().each(function () {
+                $(this).children().first().css('border-color', viewtopiaThumbnailNormalColor)
+            });
+            break;
+        case 1:
+            currentViewTopiaThumbnail.children().each(function () {
+                $(this).children().first().css('border-radius' , '1%');
+            });
+        default:
+            break;
+    }
+
+
 }
 
 /**
@@ -361,12 +390,47 @@ function currentThumbnail(currentIndex){
 
     unselectAllThumbnails();
 
-    currentImageTextWrapper.children().eq(currentIndex).css('display', 'block');
 
+    switch (viewtopiaThumbnailStyle){
+        case 3:
+            currentThumbnailMoving(currentIndex);
+            break;
+        case 2:
+            currentThumbnailHIghlight(currentIndex);
+        case 1:
+            currentThumbnailBorder(currentIndex);
+        default:
+            break;
+    }
+
+}
+
+/**
+ * Animates the active thumbnail to get moved up in position.
+ * @param {Number} currentIndex - index of the thumbnail to be activated
+ */
+function currentThumbnailMoving(currentIndex){
     currentViewTopiaThumbnail.children().eq(currentIndex).animate(
         {
             top: '-25%'
 
-        } , 150);
+        } , 1.5 * viewtopiaAnimSpeed);
 }
 
+/**
+ * Sets the active thumbnail to get highlighted.
+ * @param {Number} currentIndex - index of the thumbnail to be activated
+ */
+function currentThumbnailHIghlight(currentIndex){
+    currentViewTopiaThumbnail.children().eq(currentIndex).children().first().css('border-color' , viewtopiaThumbnailHighlightColor);
+
+}
+
+/**
+ * Sets the active thumbnail to get into .
+ * @param {Number} currentIndex - index of the thumbnail to be activated
+ */
+function currentThumbnailBorder(currentIndex){
+    currentViewTopiaThumbnail.children().eq(currentIndex).children().first().css('border-radius' , '50%');
+
+}
