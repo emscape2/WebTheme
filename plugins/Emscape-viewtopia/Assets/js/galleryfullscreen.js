@@ -12,7 +12,7 @@ var viewtopiaIsDrag = false;
 
 //now follow the setting variables
 var viewtopiaAnimSpeed = 100;
-var viewtopiaThumbnailStyle = 1; //3 indicates moving thumbnails, 2 other border colors, 1 overlay effects, 0 means nothing.
+var viewtopiaThumbnailStyle = 3; //3 indicates moving thumbnails, 2 other border colors, 1 border style effects, 0 means nothing.
 var viewtopiaThumbnailHighlightColor = '#DDDDDD';
 var viewtopiaThumbnailNormalColor = '#000000';
 
@@ -389,7 +389,7 @@ function unselectAllThumbnails() {
 function currentThumbnail(currentIndex){
 
     unselectAllThumbnails();
-
+    currentViewtopiaImageTextWrapper.children().eq(currentIndex).css('display', 'inline')
 
     switch (viewtopiaThumbnailStyle){
         case 3:

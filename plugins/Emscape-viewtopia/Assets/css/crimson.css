@@ -43,6 +43,7 @@
     height: 6vh;
     width: 6vh;
     font-size: 60px;
+    background-image: url("close.png");
 }
 
 .overlay .leftbtn{

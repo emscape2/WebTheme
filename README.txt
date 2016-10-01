@@ -43,6 +43,8 @@ Betere icons
 Logo erbij doen
 zorgen dat je je efforts in de files erbij comment
 
+google calendar teste
+
 de bliksem zelf is nog niet zo mooi als de bedoeling is
 fullscreen photo album view
 viewtopia plugin
