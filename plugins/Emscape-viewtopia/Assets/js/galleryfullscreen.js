@@ -296,11 +296,11 @@ function animateToRight(index, startingDisplacement) {
  * @param {Number} startingDisplacement - starting position of the animation when animating
  */
 function animateToLeft(index , startingDisplacement) {
-    var currentWidthHalf = currentViewTopia.children().eq(index).width() /2;
+    var currentWidthHalf = currentViewTopia.children().eq(index).width() / 2;
     var lastWidth;
     var animateWidth;
     var halfScreenWidth = ($(window).width() / 2);
-    var totalSize =  currentViewTopia.children().size();
+    var totalSize = currentViewTopia.children().size();
     var notFirst = false;
     var bordersize = currentViewTopia.children().eq(index).css("border-left-width");
     bordersize = parseInt(bordersize) * 2;
@@ -310,26 +310,22 @@ function animateToLeft(index , startingDisplacement) {
 
 
     //Check if not the last element inside of the array of Gallery elements.
-    if (currentViewTopia.children().eq(index).prev().size() > 0)
-    {
+    if (currentViewTopia.children().eq(index).prev().size() > 0) {
         notFirst = true;
     }
 
     //Read the width of the previous element.
-    if(notFirst)
-    {
-        lastWidth =currentViewTopia.children().eq(index-1).width();
+    if (notFirst) {
+        lastWidth = currentViewTopia.children().eq(index - 1).width();
     }
-    else
-    {
+    else {
         lastWidth = currentViewTopia.children().eq(totalSize - 1).width();
     }
 
 
     //Calculate the total width of the animation.
     animateWidth = currentWidthHalf + ( lastWidth / 2);
-    var newContainerLeft =  halfScreenWidth + animateWidth - 2 * bordersize;
-
+    var newContainerLeft = halfScreenWidth + animateWidth - 2 * bordersize;
 
 
     //Animate the entire gallery instead of loose images.
@@ -339,12 +335,10 @@ function animateToLeft(index , startingDisplacement) {
         }, 5 * viewtopiaAnimSpeed);
 
     //Change viewtopiaCurrentIndex acordingly.
-    if (viewtopiaCurrentIndex > 0)
-    {
+    if (viewtopiaCurrentIndex > 0) {
         viewtopiaCurrentIndex = viewtopiaCurrentIndex - 1;
     }
-    else
-    {
+    else {
         viewtopiaCurrentIndex = totalSize - 1;
     }
 
